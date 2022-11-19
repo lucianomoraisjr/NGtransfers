@@ -1,5 +1,5 @@
 export interface CheckAccountByUserNameRepository {
-  checkByEmail: (username: string) => Promise<CheckAccountByUserNameRepository.Result>
+  checkByUsername: (username: string) => Promise<CheckAccountByUserNameRepository.Result>
 }
 
 export namespace CheckAccountByUserNameRepository {
