@@ -10,6 +10,11 @@ export namespace Authentication {
 
   export type Result = {
     accessToken: string
-      username: string
+    username: string,
+    account:account
   }
+}
+type account = {
+  balance:number
+  id:number
 }

@@ -7,5 +7,11 @@ export namespace LoadAccountByUserNameRepository {
     id: number
     username: string
     password: string
+    account : account
+    
   } | undefined
+}
+type account ={
+  id:number,
+  balance:number 
 }

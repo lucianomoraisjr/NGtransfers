@@ -15,11 +15,12 @@ export class DbAuthentication implements Authentication {
     if (account) {
       const isValid = await this.hashComparer.compare(authenticationParams.password, account.password)
       if (isValid) {
-        const accessToken = await this.encrypter.encrypt(account.id.toString())
+        const accessToken = await this.encrypter.encrypt(account.id)
 
         return {
           accessToken,
-          username: account.username
+          username: account.username,
+          account :account.account
         }
       }
     }
