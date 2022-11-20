@@ -1,4 +1,4 @@
-import { Middleware } from '@/application/middlewares'
+import { Middleware } from '@/application/middlewares/middleware'
 
 import { RequestHandler } from 'express'
 
