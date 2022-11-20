@@ -15,9 +15,16 @@ export class InvalidMimeTypeError extends Error {
   }
 }
 
-export class MaxFileSizeError extends Error {
-  constructor (maxSizeInMb: number) {
-    super(`File upload limit is ${maxSizeInMb}MB`)
-    this.name = 'MaxFileSizeError'
+export class MinCharacter extends Error {
+  constructor (character: number, fieldName: string) {
+    super(`${fieldName} must contain at least ${character} characters`)
+    this.name = 'MinCharactersError'
+  }
+}
+
+export class RestrictionPassword extends Error {
+  constructor (fieldName: string) {
+    super(`${fieldName} must contain capital letter and number`)
+    this.name = 'RestrictionPassword'
   }
 }
