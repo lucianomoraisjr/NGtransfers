@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { AddAccount } from '@/domain/usecases'
-import { Hasher, AddAccountRepository, CheckAccountByUserNameRepository } from '@/data/protocols'
+import { Hasher, AddUserRepository, CheckAccountByUserNameRepository } from '@/data/protocols'
 
 export class DbAddAccount implements AddAccount {
   constructor (
     private readonly hasher: Hasher,
-    private readonly addAccountRepository: AddAccountRepository,
+    private readonly AddUserRepository: AddUserRepository,
     private readonly checkAccountByUserNameRepository: CheckAccountByUserNameRepository
   ) {}
 
@@ -14,7 +14,7 @@ export class DbAddAccount implements AddAccount {
     let isValid = false
     if (!exists) {
       const hashedPassword = await this.hasher.hash(accountData.password)
-      await this.addAccountRepository.add({ ...accountData, password: hashedPassword })
+      await this.AddUserRepository.add({ ...accountData, password: hashedPassword })
       isValid = true
     }
     return isValid

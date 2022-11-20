@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm'
 
-@Entity({ name: 'usuarios' })
+@Entity({ name: 'transactions' })
 export class PgTransactions {
   @PrimaryGeneratedColumn()
     id!: number

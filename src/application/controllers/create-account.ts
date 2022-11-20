@@ -4,7 +4,7 @@ import { HttpResponse, ok, badRequest, serverError } from '@/application/helpers
 import { DbAddAccount } from '@/data/usecases'
 import { Validator } from '@/application/validation'
 
-type HttpRequest = { username: string, password: string}
+type HttpRequest = { username: string, password: string }
 type Model = Error | { msg: string }
 
 export class CreateAccountController extends Controller {
@@ -18,6 +18,7 @@ export class CreateAccountController extends Controller {
       if (check) return ok({ msg: 'Sucesso' })
       return badRequest(new Error('Usuario ja castrado'))
     } catch (error) {
+      console.log(error)
       return serverError(error)
     }
   }
