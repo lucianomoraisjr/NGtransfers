@@ -4,7 +4,7 @@ import { RequiredString } from '@/application/validation'
 import { Decrypter } from '@/data/protocols'
 
 type HttpRequest = { authorization: string }
-type Model = Error | { userId: string }
+type Model = Error | { userId: number }
 
 
 export class AuthenticationMiddleware implements Middleware {

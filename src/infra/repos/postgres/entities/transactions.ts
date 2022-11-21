@@ -1,19 +1,28 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne, JoinColumn } from 'typeorm'
+import { PgAccountld } from '@/infra/repos/postgres/entities'
 
 @Entity({ name: 'transactions' })
 export class PgTransactions {
   @PrimaryGeneratedColumn()
-    id!: number
+  id!: number
 
   @Column()
-    debitedAccountId!: number
+  debited_account_id!: number
 
   @Column()
-    creditedAccountId!: number
+  credited_account_id!: number
 
   @Column()
-    value!: number
+  value!: number
+
+  @ManyToOne(() => PgAccountld)
+  @JoinColumn({ name: 'debited_account_id' })
+  debite_account!: PgAccountld
+
+  @ManyToOne(() => PgAccountld)
+  @JoinColumn({ name: 'credited_account_id' })
+  credited_account!: PgAccountld
 
   @CreateDateColumn()
-    created_at!: Date
+  created_at!: Date
 }

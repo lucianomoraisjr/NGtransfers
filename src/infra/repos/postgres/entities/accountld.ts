@@ -7,4 +7,6 @@ export class PgAccountld {
 
   @Column()
     balance!: number
+
+  
 }
