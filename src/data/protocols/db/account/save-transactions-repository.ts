@@ -1,4 +1,4 @@
-import { SaveTransactions } from "@/domain/usecases" 
+
 
 export interface SaveTransactionsRepository {
   save: (data: SaveTransactionsRepository.Params) => Promise<void>

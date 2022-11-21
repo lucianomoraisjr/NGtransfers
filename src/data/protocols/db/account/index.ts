@@ -4,4 +4,5 @@ export * from './load-user-by-username-repository'
 export * from './load-user-by-id-repository'
 export * from './update-accounts-repository'
 export * from './save-transactions-repository'
+export * from './search-transactions-repository'
 
