@@ -4,7 +4,7 @@ export interface SearchTransactions {
 
 export namespace SearchTransactions {
     export type Params = {
-        type: string
+        type?: string
         page: number
         id: number
     }

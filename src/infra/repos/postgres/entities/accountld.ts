@@ -1,16 +1,19 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
-import {PgTransactions} from '@/infra/repos/postgres/entities'
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, OneToOne, JoinColumn } from 'typeorm'
+import { PgTransactions, PgUser } from '@/infra/repos/postgres/entities'
 @Entity({ name: 'accounts' })
 export class PgAccountld {
   @PrimaryGeneratedColumn()
-    id!: number
+  id!: number
 
   @Column()
-    balance!: number
+  balance!: number
 
-  @OneToMany(()=>PgTransactions, (transactions)=> transactions.credited_account)
+  @OneToMany(() => PgTransactions, (transactions) => transactions.credited_account)
   credited!: PgTransactions[]
-  
-  @OneToMany(()=>PgTransactions, (transactions)=> transactions.debite_account)
+
+  @OneToMany(() => PgTransactions, (transactions) => transactions.debite_account)
   debite!: PgTransactions[]
+
+  @OneToOne(() => PgUser, (user) => user.username) // specify inverse side as a second parameter
+  user!: PgUser
 }
