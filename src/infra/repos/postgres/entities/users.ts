@@ -14,7 +14,7 @@ export class PgUser {
   @Column()
     account_id!: number
 
-  @OneToOne(() => PgAccountld)
+  @OneToOne(() => PgAccountld,(account)=> account.user)
   @JoinColumn({ name: 'account_id' })
     account!: PgAccountld
 }

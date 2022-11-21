@@ -9,10 +9,14 @@ export namespace SearchTransactions {
         id: number
     }
 
-    export type Result = 
-    {
-        type:string,
-        username:string,
-        value:number
-    }[]
+    export type Result =
+        [
+            transactions: {
+                type: string,
+                username: string,
+                value: number,
+                date: Date
+            }[],
+            amount: number
+        ]
 }

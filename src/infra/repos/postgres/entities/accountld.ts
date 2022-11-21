@@ -14,6 +14,6 @@ export class PgAccountld {
   @OneToMany(() => PgTransactions, (transactions) => transactions.debite_account)
   debite!: PgTransactions[]
 
-  @OneToOne(() => PgUser, (user) => user.username) // specify inverse side as a second parameter
+  @OneToOne(() => PgUser, (user) => user.account) // specify inverse side as a second parameter
   user!: PgUser
 }
