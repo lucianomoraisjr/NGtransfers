@@ -15,8 +15,10 @@ export namespace SearchTransactions {
                 type: string,
                 username: string,
                 value: number,
-                date: Date
+                date: Date,
+               
             }[],
-            amount: number
+            amount: number,
+            balance?:number
         ]
 }

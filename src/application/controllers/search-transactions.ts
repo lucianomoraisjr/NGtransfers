@@ -1,8 +1,8 @@
 import { Controller } from '@/application/controllers'
-import { HttpResponse, ok, badRequest, serverError } from '@/application/helpers'
-
-
+import { HttpResponse, ok, serverError } from '@/application/helpers'
+import { ValidationBuilder as Builder, Validator } from '@/application/validation'
 import { DbSearchTransactions } from '@/data/usecases'
+
 
 type HttpRequest = {
     type?: string
@@ -14,9 +14,11 @@ type Model = Error | [
         type: string,
         username: string,
         value: number,
-        date:Date
+        date:Date,
+      
     }[],
-    amount: number
+    amount: number,
+    balance?:number
 ]
 
 export class SearchTransactionsController extends Controller {
@@ -36,6 +38,11 @@ export class SearchTransactionsController extends Controller {
             return serverError(error)
         }
     }
-
+    override buildValidators ({page}: HttpRequest): Validator[] {
+        return [
+          ...Builder.of({ value: page, fieldName: 'page' }).required().build(),
+          
+        ]
+      }
 
 }

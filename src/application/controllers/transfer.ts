@@ -1,5 +1,6 @@
 import { Controller } from '@/application/controllers'
 import { HttpResponse, ok, badRequest, serverError } from '@/application/helpers'
+import { ValidationBuilder as Builder, Validator } from '@/application/validation'
 
 
 import { DbSaveTransactions } from '@/data/usecases'
@@ -25,6 +26,11 @@ export class TransferController extends Controller {
             return serverError(error)
         }
     }
-
+    override buildValidators({ usernameCred, value }: HttpRequest): Validator[] {
+        return [
+            ...Builder.of({ value: usernameCred, fieldName: 'username' }).required().build(),
+            ...Builder.of({ value: value, fieldName: 'balance' }).required().build(),
+        ]
+    }
 
 }

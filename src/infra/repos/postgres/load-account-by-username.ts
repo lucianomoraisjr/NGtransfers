@@ -6,7 +6,7 @@ export class PgLoadkByUsername extends PgRepository implements LoadAccountByUser
 
     async loadByUsername (username: string): Promise<LoadAccountByUserNameRepository.Result> {
         const pgUserRepo = this.getRepository(PgUser)
-        const user = await pgUserRepo.findOne({ where:{username},relations:['account','account.credited','account.debite'] })
+        const user = await pgUserRepo.findOne({ where:{username},relations:['account'] })
         
         if(user){
             return {

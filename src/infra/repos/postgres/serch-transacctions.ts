@@ -5,7 +5,7 @@ import { SearchTransactions } from '@/domain/usecases';
 export class PgSearchTransactionsRepositoryextends extends PgRepository implements SearchTransactionsRepository {
     async search({ id, page, type }: SearchTransactions.Params): Promise<SearchTransactions.Result> {
         const pgTransacctions = this.getRepository(PgTransactions)
-        const take = 2
+        const take = 10
 
         const [list, count] = await pgTransacctions.findAndCount({
             where: type == 'cash-out' ? { debited_account_id: id }
@@ -18,19 +18,23 @@ export class PgSearchTransactionsRepositoryextends extends PgRepository implemen
             take,
 
         })
+        let balance :number | undefined
         const res = list.map(key => {
             const cash = key.credited_account_id == id ? 'cash-in' : 'cash-out'
+            balance = cash == 'cash-in' ? key.credited_account.balance : key.debite_account.balance
             return {
                 type: cash,
                 username: cash == 'cash-in' ? key.debite_account.user.username : key.credited_account.user.username,
                 value: key.value,
-                date: key.created_at
+                date: key.created_at,
+               
             }
         })
         console.log(res)
         return [
             res,
-            count
+            count,
+            balance
         ]
     }
 }
