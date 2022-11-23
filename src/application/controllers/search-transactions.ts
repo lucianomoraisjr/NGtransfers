@@ -34,7 +34,7 @@ export class SearchTransactionsController extends Controller {
             return ok(check)
 
         } catch (error) {
-            console.log(error)
+            
             return serverError(error)
         }
     }

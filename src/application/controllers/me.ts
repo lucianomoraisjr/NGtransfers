@@ -26,7 +26,7 @@ export class MeController extends Controller {
       if (check) return ok(check)
       return badRequest(new Error('invalid token'))
     } catch (error) {
-      console.log(error)
+      
       return serverError(error)
     }
   }

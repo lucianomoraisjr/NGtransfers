@@ -7,7 +7,9 @@ export class JwtAdapter implements Encrypter, Decrypter {
 
   async encrypt (plaintext: number): Promise<string> {
     
-    return jwt.sign({ id: plaintext }, this.secret)
+    return jwt.sign({ id: plaintext }, this.secret,{
+      expiresIn:60*60*24
+    })
   }
 
   async decrypt (ciphertext: string): Promise<number> {

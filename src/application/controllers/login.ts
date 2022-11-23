@@ -18,7 +18,7 @@ export class LoginController extends Controller {
       if (check) return ok(check)
       return badRequest(new Error('wrong username or password'))
     } catch (error) {
-      console.log(error)
+      
       return serverError(error)
     }
   }

@@ -1,0 +1,32 @@
+version: '3'
+services:
+  api-heroes-postgres:
+    container_name: api-ng
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+    
+      API_PORT: 3000
+      PG_DB_TYPE: postgres
+      PG_DB_HOST: localhost
+      PG_DB_PORT: 8080
+      PG_DB_USERNAME: postgres
+      PG_DB_PASSWORD: postgres
+      PG_DB_BASE: postgres
+      
+    depends_on:
+      - postgres
+    links:
+      - postgres
+
+  postgres:
+    image: "postgres:12"
+    container_name: postgres
+    restart: always
+    ports:
+      - 8080:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
