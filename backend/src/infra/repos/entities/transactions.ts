@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne, JoinColumn } from 'typeorm'
-import { PgAccountld } from './'
+import { PgAccountld } from '.'
 
 @Entity({ name: 'transactions' })
 export class PgTransactions {

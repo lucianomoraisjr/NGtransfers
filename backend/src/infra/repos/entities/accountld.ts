@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, OneToOne } from 'typeorm'
-import { PgTransactions, PgUser } from './'
+import { PgTransactions, PgUser } from '.'
 @Entity({ name: 'accounts' })
 export class PgAccountld {
   @PrimaryGeneratedColumn()

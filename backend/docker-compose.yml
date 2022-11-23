@@ -13,17 +13,18 @@ services:
       - postgres-compose-network
       
   api:
-    container_name: api-container
+    container_name: api-container-lj
     build: .
-    image: node-api
-    command: bash -c "npx typeorm migration:run && npm start"
+    image: node:16
+    working_dir: /usr/src/node-api
+    command: bash -c "npm install --only=prod && npx typeorm migration:run && npm start"
     environment:
       - PG_DB_TYPE=postgres
       - PG_DB_HOST=postgres-compose
       - PG_DB_PORT=5432
       - PG_DB_USERNAME=postgres
       - PG_DB_PASSWORD=Postgres2019!
-      - PG_DB_BASE=TransActions
+      - PG_DB_BASE=postgres
       - API_PORT=5050
     volumes:
       - ./dist/:/usr/src/node-api/dist/
