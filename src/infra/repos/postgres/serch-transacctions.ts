@@ -1,6 +1,6 @@
 import { SearchTransactionsRepository } from '@/data/protocols'
 import { PgRepository } from './repository';
-import { PgTransactions,PgUser } from '@/infra/repos/postgres/entities'
+import { PgTransactions,PgUser } from '@/infra/repos/entities'
 import { SearchTransactions } from '@/domain/usecases';
 export class PgSearchTransactionsRepositoryextends extends PgRepository implements SearchTransactionsRepository {
     async search({ id, page, type }: SearchTransactions.Params): Promise<SearchTransactions.Result> {

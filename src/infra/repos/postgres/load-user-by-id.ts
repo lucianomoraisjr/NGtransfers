@@ -1,4 +1,4 @@
-import { PgUser } from '@/infra/repos/postgres/entities'
+import { PgUser } from '@/infra/repos/entities'
 import { PgRepository } from '@/infra/repos/postgres/repository'
 import { LoadAccountByIdRepository } from '@/data/protocols/'
 

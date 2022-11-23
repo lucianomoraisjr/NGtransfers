@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from 'typeorm'
-import { PgAccountld } from '@/infra/repos/postgres/entities/'
+import { PgAccountld } from './'
 @Entity({ name: 'users' })
 export class PgUser {
   @PrimaryGeneratedColumn()

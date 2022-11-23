@@ -1,4 +1,4 @@
-import { PgAccountld } from '@/infra/repos/postgres/entities'
+import { PgAccountld } from '@/infra/repos/entities'
 import { PgRepository } from '@/infra/repos/postgres/repository'
 import { UpAccountRepository } from '@/data/protocols/'
 import { UpAccount } from '@/domain/usecases'
