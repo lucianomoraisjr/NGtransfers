@@ -38,10 +38,10 @@ export default function Home() {
     async function handleGetTransactions() {
 
         await api.get<[list: Table, cont: number, balance?: number]>(`search?page=${page}&type=${type}`).catch((e) => {
-            console.log(e)
+          
         }).then((response) => {
             if (response) {
-                console.log(response)
+                
                 const [list, cont, balance] = response.data
                 if (balance) setBalance(balance)
                 if (list.length > 0) {

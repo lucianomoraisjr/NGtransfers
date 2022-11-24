@@ -6,7 +6,7 @@ module.exports = {
   password: process.env.PG_DB_PASSWORD,
   database: process.env.PG_DB_BASE,
   entities: [
-    `${process.env.TS_NODE_DEV === undefined ? 'dist/infra/repos/entities/index.js' : 'src/infra/repos/postgres/entities/index.{js,ts}'}`
+    `${process.env.TS_NODE_DEV === undefined ? 'dist/infra/repos/entities/index.js' : 'src/infra/repos/entities/index.{js,ts}'}`
   ],
   migrations: [`${process.env.TS_NODE_DEV === undefined ? 'dist/infra/repos/migrations/*.js' : 'src/infra/repos/migrations/*.ts'}`],
   cli: {

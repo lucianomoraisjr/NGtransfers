@@ -41,7 +41,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     function routerMe() {
             api.get('/me').then(function (response) {
                 const user = response.data
-                console.log(user.account.balance)
+             
                 setUserLocal({  
                    username:user.username,
                    balance:user.account.balance

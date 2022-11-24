@@ -33,7 +33,7 @@ export default function Home() {
     const [passwordConfirmation, setPasswordConfirmation] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
     const [msgForm, setMsgForm] = useState<MsgForm>()
-    const { signIn,singnLogout } = useContext(AuthContex)
+    const { signIn, singnLogout } = useContext(AuthContex)
     const router = useRouter()
 
 
@@ -60,22 +60,22 @@ export default function Home() {
     }
 
     async function handleSendRegistration() {
-        console.log('oi')
+
         setLoading(true)
         if (handleCheckUsername() && handleCheckPassword()) {
             api.post('account/create', {
                 username,
                 password
             }).then(async (response) => {
-                
-                await signIn({ password, username }).catch(()=>{
+
+                await signIn({ password, username }).catch(() => {
                     singnLogout()
                 })
                 setLoading(false)
 
             }).catch((e) => {
-                console.log(e)
-               setMsgForm({...msgForm,username:'Nome de Usuário já cadastrado'})
+
+                setMsgForm({ ...msgForm, username: 'Nome de Usuário já cadastrado' })
                 setLoading(false)
             })
         }
@@ -93,12 +93,12 @@ export default function Home() {
                         <HStack spacing="1" justify="center">
                             <Text color="muted">
                                 Já tem uma conta?</Text>
-                            <Button onClick={()=>{router.push('login')}} variant="link" colorScheme="blue">
+                            <Button onClick={() => { router.push('login') }} variant="link" colorScheme="blue">
                                 Login
                             </Button>
                         </HStack>
                     </Stack>
-                   
+
                 </Stack>
                 <Box
                     py={{ base: '0', sm: '8' }}

@@ -1,0 +1,24 @@
+{
+  "name": "ngtransfers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "backend:install": "cd backend && npm i",
+    "backend:build": "cd backend && npm run build",
+    "frontend:install": "cd frontend && npm i",
+    "frontend:build": "cd frontend && npm run build",
+    "compose": "npm run backend:install && npm run  backend:build && npm run  frontend:install && npm run frontend:build "
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucianomoraisjr/NGtransfers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucianomoraisjr/NGtransfers/issues"
+  },
+  "homepage": "https://github.com/lucianomoraisjr/NGtransfers#readme"
+}

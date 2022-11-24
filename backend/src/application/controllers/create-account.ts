@@ -18,7 +18,7 @@ export class CreateAccountController extends Controller {
       if (check) return ok({ msg: 'Sucesso' })
       return badRequest(new Error('User already castrated'))
     } catch (error) {
-        console.log(error)
+        
       return serverError(error)
     }
   }

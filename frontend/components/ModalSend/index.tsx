@@ -72,7 +72,7 @@ export function ModalSend({ onClose, handleGetTransactions }: ModalProps) {
                 setMsgForm({})
 
             }).catch((error) => {
-                console.log(error)
+                
                 const msg = error.response.data.error
                 if (msg == 'insufficient balance') setMsg("Saldo insuficiente")
                 else if (msg == 'Creator user does not exist') setMsg("Usuário inexistente!")
