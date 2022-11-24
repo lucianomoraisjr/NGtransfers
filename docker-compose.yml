@@ -42,15 +42,18 @@ services:
     container_name: front
     build: .
     image: node:16
-    working_dir: /usr/src/front-api
-    command: bash -c "npm install && npm run dev"
+    working_dir: /usr/src/front
+    command: bash -c "npm install && npm run start"
     environment:
+      - NODE_ENV=production
       - NEXT_PUBLIC_API_BASE_URL=http://localhost:5050/api
       
     volumes:
-      - ./frontend/:/usr/src/front-api/
+      - ./frontend/:/usr/src/front/
+      - ./frontend/package.json:/usr/src/front/package.json
+      - ./frontend/.next:/usr/src/front/.next
     ports:
-      - "3002:3000"
+      - "3000:3000"
     depends_on:
       - api
     networks:

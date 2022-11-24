@@ -68,10 +68,10 @@ export default function Home() {
     }
     return (
 
-        <Flex w='100vw' minH='100vh' bg='blackAlpha.900' color='white' direction='column' alignItems='center'>
+        <Flex w='100vw' minH='100vh' bg='whiteAlpha.900' color='black' direction='column' alignItems='center'>
             {loading ? <></>
                 : <>
-                    <Flex mb='5' p='5' bg='blackAlpha.600' w='100%' justifyContent='space-between' >
+                    <Flex mb='5' color='white' p='5' bg='black' w='100%' justifyContent='space-between' >
                         <Heading fontSize='2xl'>{userLocal?.username}</Heading>
                         <Button colorScheme='purple' onClick={() => { singnLogout() }}>Sair</Button>
                     </Flex >
@@ -80,9 +80,10 @@ export default function Home() {
                     <Box
                         py={{ base: '0', sm: '8' }}
                         px={{ base: '4', sm: '10' }}
-                        bg='blackAlpha.600'
+                        bg='black'
                         boxShadow={{ base: 'none', sm: 'md' }}
                         borderRadius={{ base: 'none', sm: 'xl' }}
+                        color='white'
 
                     >
                         <HStack spacing={4} >
@@ -129,8 +130,8 @@ export default function Home() {
                     }
                     {autorizationTable &&
                         <>
-                            <TableContainer h='40vh' w='80%'>
-                                <Table size='sm'>
+                            <TableContainer  h='40vh' w='80%'>
+                                <Table  size='sm'>
                                     <Thead>
                                         <Tr >
                                             <Th>Usuário</Th>
