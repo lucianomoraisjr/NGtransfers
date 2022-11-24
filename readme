@@ -1,0 +1,7 @@
+## Executando com o  Docker
+
+Na raiz do projeto execute o comando npm run compose
+> Ira instalar todas as dependência
+> fazendo o build tanto do fronte-end quando do back-end
+
+E execute o docker-compose.yml
